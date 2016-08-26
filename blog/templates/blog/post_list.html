@@ -1,22 +1,12 @@
-<html>
-    <head>
-        {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'blog/bootstrap.min.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'blog/bootstrap-theme.min.css' %}">
-        <title>XY'z Blog</title>
-    </head>
+{% extends 'blog/base.html' %}
 
-    <body>
-        <div>
-            <h1><a href="">XY</a> </h1>
+{% block content %}
+    {%  for post in posts %}
+        <div class="post">
+            <p>published: {{ post.published_date }}</p>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a> </h1>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-        {%  for post in posts %}
-            <div>
-                <p>published: {{ post.published_date }}</p>
-                <h1><a href="">{{ post.title }}</a> </h1>
-                <p>{{ post.text|linebreaksbr }}</p>
-            </div>
-{#            <button class="btn btn-warning">X</button>#}
-        {%  endfor %}
-    </body>
-</html>
+    {#            <button class="btn btn-warning">X</button>#}
+    {%  endfor %}
+{% endblock %}

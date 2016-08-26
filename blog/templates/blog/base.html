@@ -1,0 +1,25 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/css/bootstrap-theme.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/css/blog.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <title>XY'z Blog</title>
+    </head>
+
+    <body>
+        <div class="page-header">
+        <h1><a href="/">XY</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    </body>
+</html>

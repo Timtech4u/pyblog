@@ -8,6 +8,7 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     text = models.TextField()
+    # image = models.ImageField()
     created_date = models.DateTimeField(
         default=timezone.now
     )
