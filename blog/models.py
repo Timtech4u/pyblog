@@ -3,12 +3,15 @@ from django.db import models
 # Create your models here.
 from django.db import models
 from django.utils import timezone
+# from django.core.files import images
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     text = models.TextField()
-    # image = models.ImageField()
+    image = models.ImageField(upload_to='blog/static/blog/imagez', verbose_name='zphoto')
+    # image.height='400px'
+    # image.width='400px'
     created_date = models.DateTimeField(
         default=timezone.now
     )
